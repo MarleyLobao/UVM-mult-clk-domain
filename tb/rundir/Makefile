@@ -3,7 +3,7 @@ PATHS = +incdir+../../rtl/ \
         +incdir+../src/agent/ \
         +incdir+../src/rb_agent/
 
-IFS = ../src/agent/interface_if.sv \
+IFS = ../src/agent/interface.sv \
       ../src/rb_agent/interface_rb.sv
 
 PKGS = ../src/pkg.sv
