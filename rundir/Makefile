@@ -1,10 +1,10 @@
 IFS = ./interface_if.sv \
-	  ./interface_rb.sv
+      ./interface_rb.sv
 
 PKGS = ./pkg.sv
 
 RTL = ./rtl/datapath.sv \
-	  ./rtl/mux.sv \
+      ./rtl/mux.sv \
       ./rtl/rb.sv \
       ./rtl/ula.sv
 
