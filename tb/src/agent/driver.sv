@@ -37,9 +37,7 @@ class driver extends uvm_driver #(transaction_in);
                 else begin
                     if(tr)begin
                         if(vif.valid_o || first_tr) begin
-                            $display("data_i = ",tr.data_i);
-                            $display("reg_sel = ",tr.reg_sel);
-                            $display("instru = ",tr.instru);
+                            `uvm_info("DRIVER", $sformatf("data_i = %d - reg_sel = %d - instru = %d",tr.data_i,tr.reg_sel,tr.instru), UVM_HIGH);
                             vif.data_i  <= tr.data_i;
                             vif.reg_sel <= tr.reg_sel;
                             vif.instru  <= tr.instru;

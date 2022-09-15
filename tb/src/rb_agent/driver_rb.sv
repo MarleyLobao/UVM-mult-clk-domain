@@ -38,8 +38,7 @@ class driver_rb extends uvm_driver #(transaction_rb);
                 end
                 else begin
                     if(tr)begin
-                        $display("data_i = ",tr.data_i);
-                        $display("addr = ",tr.addr);
+                        `uvm_info("RB_DRIVER", $sformatf("data_i = %d - addr = %d",tr.data_i,tr.addr), UVM_HIGH);
                         vif.data_i  <= tr.data_i;
                         vif.addr <= tr.addr;
                         vif.valid_i <= 1'b1;
