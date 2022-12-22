@@ -49,6 +49,6 @@ module top;
     uvm_config_db#(interface_vif)::set(uvm_root::get(), "*.env_h.mst.*", "vif", dut_if);
     uvm_config_db#(rb_vif)::set(uvm_root::get(), "*.env_h.mst_rb.*", "vif", rb_if);
 
-    run_test("simple_test");
+    run_test();
   end
 endmodule

@@ -1,14 +1,12 @@
 class agent extends uvm_agent;
-    
-    typedef uvm_sequencer#(transaction_in) sequencer;
+    `uvm_component_utils(agent)
+
     sequencer  sqr;
     driver   drv;
     monitor  mon;
 
     uvm_analysis_port #(transaction_in) agt_req_port;
     uvm_analysis_port #(transaction_out) agt_resp_port;
-
-    `uvm_component_utils(agent)
 
     function new(string name = "agent", uvm_component parent = null);
         super.new(name, parent);

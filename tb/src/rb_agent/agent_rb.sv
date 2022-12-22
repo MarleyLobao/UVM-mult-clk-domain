@@ -1,7 +1,5 @@
 class agent_rb extends uvm_agent;
-    
-    typedef uvm_sequencer#(transaction_rb) sequencer;
-    sequencer  sqr;
+    sequencer_rb  sqr;
     driver_rb   drv;
     monitor_rb  mon;
 
@@ -17,7 +15,7 @@ class agent_rb extends uvm_agent;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         mon = monitor_rb::type_id::create("mon", this);
-        sqr = sequencer::type_id::create("sqr", this);
+        sqr = sequencer_rb::type_id::create("sqr", this);
         drv = driver_rb::type_id::create("drv", this);
     endfunction
 
