@@ -23,7 +23,7 @@ RUN_ARGS_COMMON = -access +r -input ../script/shm.tcl \
 sim: clean
 	@g++ -g -fPIC -Wall -std=c++0x $(MODEL) -shared -o test.so
 	xrun -64bit -uvm $(PATHS) $(PKGS) $(IFS) $(RTL) $(TOP) -sv_lib test.so \
-		+UVM_TESTNAME=parallel_test $(RUN_ARGS_COMMON) 
+		+UVM_TESTNAME=parallel_test $(RUN_ARGS_COMMON) -svseed 1
 
 clean:
 	@rm -rf INCA_libs waves.shm cov_work/ *.history *.log *.key mdv.log imc.log imc.key ncvlog_*.err *.trn *.dsn .simvision/ simvision* xcelium.d simv.daidir *.so *.o *.err
@@ -31,4 +31,4 @@ clean:
 gui: clean
 	@g++ -g -fPIC -Wall -std=c++0x $(MODEL) -shared -o test.so
 	xrun -64bit -uvm $(PATHS) $(PKGS) $(IFS) $(RTL) $(TOP) -sv_lib test.so \
-		+UVM_TESTNAME=parallel_test $(RUN_ARGS_COMMON) -gui
+		+UVM_TESTNAME=parallel_test $(RUN_ARGS_COMMON) -svseed 1 -gui
