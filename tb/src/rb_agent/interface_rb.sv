@@ -3,5 +3,11 @@ interface interface_rb(input clk, rst);
     logic  [1:0] addr;
     logic        valid_i;
     
-    modport mst(input clk, rst, output data_i, addr, valid_i);
+    clocking cb_rb @(posedge clk);
+        default output #1.6ns;
+
+        output data_i, valid_i, addr;
+    endclocking
+
+    modport mst(input clk, rst, clocking cb_rb);
 endinterface

@@ -1,6 +1,6 @@
 class monitor extends uvm_monitor;
 
-    interface_vif  vif;
+    interface_vif_mst  vif;
     event begin_record, end_record;
     transaction_in tr_in;
     transaction_out tr_out;
@@ -16,7 +16,7 @@ class monitor extends uvm_monitor;
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-         if(!uvm_config_db#(interface_vif)::get(this, "", "vif", vif)) begin
+         if(!uvm_config_db#(interface_vif_mst)::get(this, "", "vif", vif)) begin
             `uvm_fatal("NOVIF", "failed to get virtual interface")
         end
         tr_in = transaction_in::type_id::create("tr_in", this);
@@ -35,17 +35,17 @@ class monitor extends uvm_monitor;
 
             @(posedge vif.clk) begin
                 
-                if(vif.valid_i) begin
+                if(vif.cb.valid_i) begin
                     begin_tr(tr_in, "req");
-                    tr_in.data_i = vif.data_i;
-                    tr_in.reg_sel = vif.reg_sel;
-                    tr_in.instru = vif.instru;
+                    tr_in.data_i  = vif.cb.data_i;
+                    tr_in.reg_sel = vif.cb.reg_sel;
+                    tr_in.instru  = vif.cb.instru;
                     req_port.write(tr_in);
                     end_tr(tr_in);
                 end
-                if(vif.valid_o)begin
+                if(vif.cb.valid_o)begin
                     begin_tr(tr_out, "resp");
-                    tr_out.data_o = vif.data_o;
+                    tr_out.data_o = vif.cb.data_o;
                     resp_port.write(tr_out);
                     end_tr(tr_out);
                 end
