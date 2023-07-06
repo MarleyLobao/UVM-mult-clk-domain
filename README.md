@@ -13,9 +13,9 @@ This project is capable of performing functional verification of a ALU (Arithmet
 - `Systemverilog`
 - `UVM`
 - `Functional Verification`
-- `Xcelium Logic Simulator`
 - `Verification environment handling more than one clock`
 - `Virtual Sequences`
+- `Clocking Blocks`
 
 ## 📁 Access to the project
 
