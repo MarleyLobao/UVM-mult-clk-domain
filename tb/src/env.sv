@@ -9,6 +9,7 @@ class env extends uvm_env;
 
     function new(string name, uvm_component parent = null);
         super.new(name, parent);
+	uvm_config_db #(uvm_bitstream_t)::set(this, "mst*","is_active", UVM_ACTIVE);
     endfunction
 
     virtual function void build_phase(uvm_phase phase);

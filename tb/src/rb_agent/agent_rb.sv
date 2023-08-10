@@ -1,11 +1,13 @@
 class agent_rb extends uvm_agent;
+    `uvm_component_utils_begin(agent_rb)
+        `uvm_field_enum(uvm_active_passive_enum, is_active, UVM_ALL_ON)
+    `uvm_component_utils_end
+
     sequencer_rb  sqr;
     driver_rb   drv;
     monitor_rb  mon;
 
     uvm_analysis_port #(transaction_rb) agt_req_port;
-
-    `uvm_component_utils(agent_rb)
 
     function new(string name = "agent_rb", uvm_component parent = null);
         super.new(name, parent);

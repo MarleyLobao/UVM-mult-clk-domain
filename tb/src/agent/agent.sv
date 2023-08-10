@@ -1,9 +1,11 @@
 class agent extends uvm_agent;
-    `uvm_component_utils(agent)
+    `uvm_component_utils_begin(agent)
+        `uvm_field_enum(uvm_active_passive_enum, is_active, UVM_ALL_ON)
+    `uvm_component_utils_end
 
-    sequencer  sqr;
-    driver   drv;
-    monitor  mon;
+    sequencer sqr;
+    driver    drv;
+    monitor   mon;
 
     uvm_analysis_port #(transaction_in) agt_req_port;
     uvm_analysis_port #(transaction_out) agt_resp_port;
