@@ -10,6 +10,7 @@ package pkg;
   typedef uvm_sequencer#(transaction_rb) sequencer_rb;
 
   `include "../src/agent/sequence_in.sv"
+  `include "../src/agent/sequence_subtraction.sv"
   `include "../src/agent/driver.sv"
   `include "../src/agent/monitor.sv"
   `include "../src/agent/agent.sv"
@@ -24,8 +25,8 @@ package pkg;
   `include "../src/scoreboard.sv"
   `include "../src/env.sv"
 
-  `include "../src/parallel_sequence.sv"
+  `include "../src/virtual_sequence.sv"
   
   `include "../src/base_test.sv"
-  `include "../src/parallel_test.sv"
+  `include "../src/subtraction_test.sv"
 endpackage

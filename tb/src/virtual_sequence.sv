@@ -1,5 +1,5 @@
-class parallel_sequence extends uvm_sequence#(uvm_sequence_item);
-  `uvm_object_utils(parallel_sequence)
+class virtual_sequence extends uvm_sequence#(uvm_sequence_item);
+  `uvm_object_utils(virtual_sequence)
 
   sequence_in seq_in;
   sequence_rb seq_rb;
@@ -9,7 +9,7 @@ class parallel_sequence extends uvm_sequence#(uvm_sequence_item);
   sequencer sqr_in;
   sequencer_rb sqr_rb;
 
-  function new(string name="parallel_sequence");
+  function new(string name="virtual_sequence");
     super.new(name);
   endfunction: new
 
@@ -40,4 +40,4 @@ class parallel_sequence extends uvm_sequence#(uvm_sequence_item);
       seq_rb.start(sqr_rb);
     join
   endtask: body
-endclass: parallel_sequence
+endclass: virtual_sequence
