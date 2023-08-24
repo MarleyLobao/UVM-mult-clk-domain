@@ -1,4 +1,4 @@
-# env-mult-clk-domain
+# UVM-mult-clk-domain
 
 ## Project Description
 
@@ -13,7 +13,7 @@ This project is capable of performing functional verification of a ALU (Arithmet
 - `Systemverilog`
 - `UVM`
 - `Functional Verification`
-- `Verification environment handling more than one clock`
+- `Multiple Clock Domains`
 - `Virtual Sequences`
 - `Clocking Blocks`
 
@@ -27,7 +27,7 @@ The Makefile in the `tb/rundir/` directory has the following options:
 - `make sim`: Run the project with Xcelium Logic Simulator from Cadence;
 - `make gui`: Run the simulation using Simvision's GUI.
 
-When you run `parallel_test` you should notice at the end of the log 10000 matches with the reference model 🏆
+When you run `base_test` you should notice at the end of the log 10000 matches with the reference model 🏆
 
 ## 📚 More about me
 
