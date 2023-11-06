@@ -7,7 +7,7 @@ interface interface_if(input clk, rst);
     logic 		 valid_o;
     
     clocking cb @(posedge clk);
-        default input #1ps output #0.625ns;
+        default input #0.5ps output #1ps;
 
         input data_o, valid_o;
         output data_i, valid_i, instru, reg_sel;

@@ -4,7 +4,7 @@ interface interface_rb(input clk, rst);
     logic        valid_i;
     
     clocking cb_rb @(posedge clk);
-        default output #1.6ns;
+        default output #1ps;
 
         output data_i, valid_i, addr;
     endclocking
